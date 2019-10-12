@@ -16,3 +16,6 @@ That project should do the following:
 ### Jenkins credentials
 	username: adminfn
 	password: Rij35!0v0
+
+### curl
+$ curl -v https://api.github.com
