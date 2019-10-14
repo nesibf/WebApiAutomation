@@ -5,4 +5,4 @@ Feature: Check on services
   Scenario: WEB API assignment status end-point
     Given the end point is alive
     When I check the API status
-    Then the API returns user 'utkut'
+    Then the API returns data
