@@ -3,9 +3,9 @@ package starter.status;
 import io.restassured.RestAssured;
 import net.serenitybdd.rest.Ensure;
 import net.thucydides.core.annotations.Step;
-import org.hamcrest.Matchers;
 
 import static net.serenitybdd.rest.SerenityRest.get;
+import static org.hamcrest.Matchers.equalTo;
 
 public class ApiServiceStatus {
 
@@ -16,10 +16,18 @@ public class ApiServiceStatus {
     }
 
     @Step("Get message content")
-    public void readStatusMessage(String url) {
+    public void readMessageContent(String url) {
         get(url).body();
-        Ensure.that("Total is returned: ", response -> response.body("total", Matchers.equalTo(21)));
-        Ensure.that("Limit is returned: ", response -> response.body("limit", Matchers.equalTo(10)));
-        Ensure.that("Skip is returned: ", response -> response.body("skip", Matchers.equalTo(0)));
+        Ensure.that("Total is returned: ", response -> response.body("total", equalTo(21)));
+        Ensure.that("Limit is returned: ", response -> response.body("limit", equalTo(10)));
+        Ensure.that("Skip is returned: ", response -> response.body("skip", equalTo(0)));
+    }
+
+    @Step("Get message data")
+    public void readMessageData(String url) {
+        get(url)
+                .then().body("total", equalTo(21))
+                .and().body("limit", equalTo(10))
+                .and().body("skip", equalTo(0));
     }
 }

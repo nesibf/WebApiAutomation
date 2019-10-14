@@ -22,11 +22,11 @@ public class ApiServicesStepDefinitions {
 
     @When("I check the API status")
     public void i_check_the_API_status() {
-        apiService.readStatusMessage(SERVICES.getUrl());
+        apiService.readMessageContent(SERVICES.getUrl());
     }
 
-//    @Then("the API returns user '(.*)'")
     @Then("the API returns data")
     public void the_API_returns_data() {
+        apiService.readMessageData(SERVICES.getUrl());
     }
 }
