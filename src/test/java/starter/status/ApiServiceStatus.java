@@ -1,10 +1,21 @@
 package starter.status;
 
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
 import net.serenitybdd.rest.Ensure;
+import net.serenitybdd.rest.JsonConverter;
+import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 
+import java.lang.reflect.Array;
+import java.util.List;
+import java.util.Map;
+
+import static java.util.stream.Collectors.toMap;
+import static net.serenitybdd.rest.SerenityRest.expect;
 import static net.serenitybdd.rest.SerenityRest.get;
+import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class ApiServiceStatus {
@@ -26,8 +37,9 @@ public class ApiServiceStatus {
     @Step("Get message data")
     public void readMessageData(String url) {
         get(url)
-                .then().body("total", equalTo(21))
-                .and().body("limit", equalTo(10))
-                .and().body("skip", equalTo(0));
+                .then().body("data[0].id", equalTo(1))
+                .and().body("data[0].name", equalTo("Geek Squad Services"))
+                .and().body("data[0].createdAt", equalTo("2016-11-17T17:56:35.881Z"))
+                .and().body("data[0].updatedAt", equalTo("2016-11-17T17:56:35.881Z"));
     }
 }
