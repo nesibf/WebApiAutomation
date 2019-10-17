@@ -17,5 +17,8 @@ That project should do the following:
 	username: adminfn
 	password: Rij35!0v0
 
-### curl
-$ curl -v https://api.github.com
+### Execution
+- clone the project from the repository
+- open in IntelliJ
+- run via IntelliJ by selecting "verify" in Maven Projects
+- run via cmd by typing: mvn clean verify
