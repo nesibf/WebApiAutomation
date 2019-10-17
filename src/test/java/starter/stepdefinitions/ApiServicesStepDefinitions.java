@@ -6,9 +6,6 @@ import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import starter.status.ApiServiceStatus;
 
-import java.util.Map;
-
-import static net.serenitybdd.rest.SerenityRest.restAssuredThat;
 import static org.assertj.core.api.Assertions.assertThat;
 import static starter.WebServiceEndPoints.SERVICES;
 import static starter.status.ServiceStatus.RUNNING;
